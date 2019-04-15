@@ -8,6 +8,10 @@ transport_url = {{ magnum_oslomsg_rpc_transport }}://{% for host in magnum_oslom
 [api]
 host = {{ ansible_host }}
 
+[docker_registry]
+swift_region = {{ magnum_swift_service_region }}
+{% if magnum_docker_registry_swift_registry_container is defined %}swift_registry_container = {{ magnum_docker_registry_swift_registry_container }}{% endif %}
+
 [drivers]
 # NOTE(mnaser): Remove this once the following bug is fixed
 #               https://bugs.launchpad.net/magnum/+bug/1746510
